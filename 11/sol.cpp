@@ -21,7 +21,7 @@ class Monkey {
         }
         op_is_plus = match[3] == '+';
         op_is_mul = match[3] == '*';
-        right_is_num = isdigit(string(match[4])[1]);
+        right_is_num = isdigit(string(match[4])[0]);
         if (right_is_num) {
             right_num = stoi(match[4]);
         }
@@ -31,11 +31,11 @@ class Monkey {
         inspected = 0;
     };
     
-    void play_turn(vector<Monkey> &monkeys) {
+    void play_turn(vector<Monkey>& monkeys) {
         while (items.size() > 0) {
             inspected++;
             int item = items[0];
-            items.pop_front();
+            items.pop_front();       
             if (right_is_num) {
                 if (op_is_plus) {
                     item = item + right_num;
@@ -56,10 +56,11 @@ class Monkey {
                 monkeys[false_throw].items.push_back(item);
             }
         }
+        return;
     };
     
     int nr;
-    deque<int> items;
+    deque<long> items;
     bool op_is_plus;
     bool op_is_mul;
     bool right_is_num;
@@ -128,13 +129,15 @@ Monkey 7:
     If false: throw to monkey 5
 )"""";
 
+
+
 int main() {
     string str(inp);
     regex reg (
         "\\s*Monkey (\\d+):\\s*" \
         "Starting items: ([\\d, ]+)\\s*" \
-        "Operation: new = old ([+|*]) ([\\d+|old])\\s*" \
-        "Test: divisible by (\\d+)\\s*" \
+        "Operation: new = old ([+|*]) (\\d+|old)\\s*" \
+        "Test: divisible by (\\d*)\\s*" \
         "If true: throw to monkey (\\d+)\\s*" \
         "If false: throw to monkey (\\d+)" \
     );
@@ -145,8 +148,6 @@ int main() {
         monkeys.push_back(Monkey(monkey_match));
         str = monkey_match.suffix();
     }
-    
-    cout << monkeys.size() << endl;
     
     for (int round = 1; round <= 20; round++) {
         for (int m = 0; m < monkeys.size(); m++) {
