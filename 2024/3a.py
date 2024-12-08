@@ -1,4 +1,4 @@
-with open("3_input.txt", "r") as f:
+with open("2024/3_input.txt", "r") as f:
     input_lines = f.read()
 
 import re

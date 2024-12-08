@@ -9,7 +9,7 @@ int main() {
     string line;
     int n;
     ifstream input;
-    input.open("input");
+    input.open("2024/input");
 
     int max_total = 0;
     int total = 0;

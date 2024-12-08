@@ -1,4 +1,4 @@
-with open("input") as input:
+with open("2024/input") as input:
     max_total = 0
     total = 0
     for line in input.readlines():

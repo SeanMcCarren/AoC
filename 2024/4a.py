@@ -1,4 +1,4 @@
-with open("4_input.txt", "r") as f:
+with open("2024/4_input.txt", "r") as f:
     g = f.readlines()
 
 rows = len(g)
@@ -6,8 +6,10 @@ cols = len(g[0])
 
 w = "XMAS"
 
+
 def range_check(r, c):
-    return (r >= 0 and r < rows and c >= 0 and c < cols)
+    return r >= 0 and r < rows and c >= 0 and c < cols
+
 
 def count_at(x, y):
     counted = 0
@@ -19,7 +21,7 @@ def count_at(x, y):
             for index, character in enumerate(w):
                 wx = x + dx * index
                 wy = y + dy * index
-                if (not range_check(wy, wx) or character != g[wy][wx]):
+                if not range_check(wy, wx) or character != g[wy][wx]:
                     matched = False
                     break
             if matched:
@@ -27,6 +29,7 @@ def count_at(x, y):
     # if counted:
     #     print(f"counted {counted} at {x}, {y}")
     return counted
+
 
 total_count = 0
 for r in range(rows):

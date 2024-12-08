@@ -1,11 +1,12 @@
-with open("5_input.txt", "r") as f:
+with open("2024/5_input.txt", "r") as f:
     g = f.read()
 
-a,b = g.split("\n\n")
+a, b = g.split("\n\n")
 
 r = [item.split("|") for item in a.split("\n")]
 
 u = [item.split(",") for item in b.split("\n")]
+
 
 def is_update_ok(update):
     for index, item in enumerate(update):
@@ -16,16 +17,15 @@ def is_update_ok(update):
                         return False
     return True
 
+
 s = 0
 for upd in u:
-    if len(upd) == 0 or upd[0] == '':
+    if len(upd) == 0 or upd[0] == "":
         continue
 
     if is_update_ok(upd):
         assert len(upd) % 2 == 1
 
-        s += int(upd[len(upd)//2])
+        s += int(upd[len(upd) // 2])
 
 print(s)
-    
-

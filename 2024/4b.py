@@ -1,4 +1,4 @@
-with open("4_input.txt", "r") as f:
+with open("2024/4_input.txt", "r") as f:
     g = f.readlines()
 
 rows = len(g)
@@ -6,8 +6,10 @@ cols = len(g[0])
 
 w = "MAS"
 
+
 def range_check(r, c):
-    return (r >= 0 and r < rows and c >= 0 and c < cols)
+    return r >= 0 and r < rows and c >= 0 and c < cols
+
 
 def count_at(x, y):
     counted = 0
@@ -18,17 +20,18 @@ def count_at(x, y):
                 offset_index = index - 1
                 wx = x + dx * offset_index
                 wy = y + dy * offset_index
-                if (not range_check(wy, wx) or character != g[wy][wx]):
+                if not range_check(wy, wx) or character != g[wy][wx]:
                     matched = False
                     break
             if matched:
                 counted += 1
-    assert (counted < 3)
+    assert counted < 3
 
     if counted == 2:
         return 1
     else:
         return 0
+
 
 total_count = 0
 for r in range(rows):

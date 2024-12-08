@@ -1,4 +1,4 @@
-with open("3_input.txt", "r") as f:
+with open("2024/3_input.txt", "r") as f:
     input_lines = f.read()
 
 import re
@@ -13,7 +13,7 @@ for m in matches:
     is_dont = m[1] != ""
     is_mul = m[2] != ""
 
-    assert (is_do + is_dont + is_mul == 1)
+    assert is_do + is_dont + is_mul == 1
 
     if is_do:
         do = True

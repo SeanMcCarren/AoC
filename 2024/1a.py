@@ -1,4 +1,4 @@
-with open("1_input.txt", "r") as f:
+with open("2024/1_input.txt", "r") as f:
     input_lines = f.readlines()
 
 tokenized = [l.split("   ") for l in input_lines]

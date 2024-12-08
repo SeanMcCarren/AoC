@@ -31,7 +31,7 @@ MOVE read(char c) {
 int main() {
     char a = ' ';
     ifstream input;
-    input.open("input");
+    input.open("2024/input");
     int total_score = 0;
 
     int i = 0;

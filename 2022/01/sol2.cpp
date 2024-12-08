@@ -44,7 +44,7 @@ int main() {
     string line;
     int n;
     ifstream input;
-    input.open("input");
+    input.open("2024/input");
 
     TopQueue MaxK = TopQueue(3);
     int total = 0;

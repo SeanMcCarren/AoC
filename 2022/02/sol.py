@@ -1,7 +1,7 @@
 opp = "ABC"
 own = "XYZ"
 
-with open("input") as input:
+with open("2024/input") as input:
     t = 0
     for line in input.readlines():
         line = line.strip("\n")
@@ -9,7 +9,7 @@ with open("input") as input:
 
         b = own.index(line[2])
 
-        win = (b - a+1)%3
+        win = (b - a + 1) % 3
         score = win * 3 + b + 1
         print(score)
         t += score
